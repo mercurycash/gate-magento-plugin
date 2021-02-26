@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Mercury_Payment>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Mercury_Payment>
+    </modules>
+</config>

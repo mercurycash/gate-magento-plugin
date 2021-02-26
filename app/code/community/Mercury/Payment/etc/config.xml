@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Mercury_Payment>
+            <version>1.2.0</version>
+        </Mercury_Payment>
+    </modules>
+    <global>
+        <blocks>
+            <mercury_payment>
+                <class>Mercury_Payment_Block</class>
+            </mercury_payment>
+        </blocks>
+        <helpers>
+            <mercury_payment>
+                <class>Mercury_Payment_Helper</class>
+            </mercury_payment>
+        </helpers>
+        <models>
+            <mercury_payment>
+                <class>Mercury_Payment_Model</class>
+            </mercury_payment>
+        </models>
+    </global>
+    <default>
+
+    </default>
+</config>

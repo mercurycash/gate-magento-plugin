@@ -1,0 +1,11 @@
+{
+    "name": "mercurycash/gate-magentov1-plugin",
+    "type": "magento-module",
+    "homepage": "https://github.com/mercurycash/gate-magentov1-plugin",
+    "description": "Mercury Payment Extension for Magento 1",
+    "license": "MIT",
+    "require" : {
+        "php": ">=7.1",
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
