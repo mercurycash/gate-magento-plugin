@@ -85,6 +85,14 @@
                             <show_in_store>1</show_in_store>
                             <frontend_type>text</frontend_type>
                         </private_key>
+                        <pending_set translate="label">
+                            <label>Set milliseconds for pending</label>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>text</frontend_type>
+                        </pending_set>
                     </fields>
                 </mercury_payment>
             </groups>

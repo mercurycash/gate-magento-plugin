@@ -1,14 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../../sdk/vendor/autoload.php';
+declare(strict_types=1);
 
 class Mercury_Payment_MercuryController extends Mage_Core_Controller_Front_Action
 {
     public function indexAction()
     {
-        $apiKey = new APIKey($this->config->getPublishableKey(), $this->config->getPrivateKey());
-        $adapter = new Adapter($apiKey, 'https://api-way.mercurydev.tk');
-        $endpoint = new Transaction($adapter);
+        $endpoint = Mercury_Payment_Helper_Mercury::getApiInstance();
 
         $transaction = $endpoint->create([
             'email' => null !== $quote->getBillingAddress() ? $quote->getBillingAddress()->getEmail() : '',
@@ -35,9 +33,7 @@ class Mercury_Payment_MercuryController extends Mage_Core_Controller_Front_Actio
 
     public function checkAction()
     {
-        $apiKey = new APIKey($this->config->getPublishableKey(), $this->config->getPrivateKey());
-        $adapter = new Adapter($apiKey, 'https://api-way.mercurydev.tk');
-        $endpoint = new Transaction($adapter);
+        $endpoint = Mercury_Payment_Helper_Mercury::getApiInstance();
 
         $status = $endpoint->status($this->getRequest()->getParam('uuid'));
 
