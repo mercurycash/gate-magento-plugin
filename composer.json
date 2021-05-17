@@ -4,6 +4,7 @@
     "homepage": "https://github.com/mercurycash/gate-magentov1-plugin",
     "description": "Mercury Payment Extension for Magento 1",
     "license": "MIT",
+    "version": "1.1.0",
     "require" : {
         "php": ">=7.1",
         "magento-hackathon/magento-composer-installer": "*"
