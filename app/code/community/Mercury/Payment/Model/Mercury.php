@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 class Mercury_Payment_Model_Mercury extends Mage_Payment_Model_Method_Abstract
 {
-    protected $_code = 'mercurypayment';
+    const CODE = 'mercurypayment';
+
+    protected $_code = self::CODE;
+
+    protected $_canCapture = true;
+
+    protected $_formBlockType = 'mercurypayment/payment_form';
 
     public function isAvailable($quote = null)
     {
-        if (!$quote) {
-            return false;
-        }
-
-        if ($quote->getAllVisibleItems() <= 2) {
+        if ($quote === null || !$this->getConfigData('active')) {
             return false;
         }
 
@@ -21,18 +25,10 @@ class Mercury_Payment_Model_Mercury extends Mage_Payment_Model_Method_Abstract
     {
         parent::validate();
 
-        // This returns Mage_Sales_Model_Quote_Payment, or the Mage_Sales_Model_Order_Payment
-        $info = $this->getInfoInstance();
+        $paymentInfo = $this->getInfoInstance();
 
-        $no = $info->getCheckNo();
-        $date = $info->getCheckDate();
-
-        if (empty($no) || empty($date)) {
-            Mage::throwException($this->_getHelper()->__('Check No and Date are required fields'));
-        }
-
-        if (strlen($no) < 5) {
-            Mage::throwException($this->_getHelper()->__('Number must be five or more characters'));
+        if (!$paymentInfo->getData('mercury_transaction')) {
+            Mage::throwException(Mage::helper('payment')->__('Payment is required'));
         }
 
         return $this;

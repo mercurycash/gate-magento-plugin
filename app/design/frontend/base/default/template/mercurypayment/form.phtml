@@ -1,0 +1,23 @@
+<?php
+/* @var $this Mercury_Payment_Block_Payment_Form */
+
+/* @var $method Mercury_Payment_Block_Payment_Form */
+
+$method = $this->getMethod();
+?>
+<fieldset class="form-list">
+    <ul id="payment_form_<?php echo $this->getMethodCode(); ?>" style="display:none">
+        <li>
+            <div class="input-box">
+                <?php if ($method->getConfigData('description')): ?>
+                    <p><?php echo $method->getConfigData('description') ?></p>
+                <?php endif; ?>
+                <div id="mercury-cash"></div>
+            </div>
+        </li>
+    </ul>
+</fieldset>
+
+<script>
+	mercuryParam = <?php echo json_encode($this->mercuryData()); ?>;
+</script>

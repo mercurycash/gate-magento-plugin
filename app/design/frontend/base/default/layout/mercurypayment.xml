@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>mercury/mercury-cash-react/build/static/css/main.d17b8e8c.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>mercury/mercury-cash-react/build/static/js/main.a09f256b.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>mercury/payment/main.js</name>
+            </action>
+        </reference>
+    </default>
+</layout>
