@@ -24,6 +24,8 @@ class Mercury_Payment_Block_Payment_Form extends Mage_Payment_Block_Form
     		'time' => Mercury_Payment_Helper_Data::getPendingSet(),
     		'url' => Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB),
             'email' => $this->getEmail(),
+            'pathCreateTransaction' => $this->getUrlTransactionCreate(),
+            'pathCheckTransaction' => $this->getUrlTransactionCheck(),
     	];
     }
 
@@ -47,5 +49,15 @@ class Mercury_Payment_Block_Payment_Form extends Mage_Payment_Block_Form
     private function getCurrencySymbol()
     {
     	return Mage::app()->getLocale()->currency($this->getCurrency())->getSymbol();
+    }
+
+    private function getUrlTransactionCreate()
+    {
+        return $this->getUrl('mercurypayment/transaction/create');
+    }
+
+    public function getUrlTransactionCheck()
+    {
+        return $this->getUrl('mercurypayment/transaction/check');
     }
 }

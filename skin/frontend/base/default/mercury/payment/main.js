@@ -7,8 +7,9 @@ jQuery("document").ready(function() {
         }
 
         let sdk = new MercurySDK({
-            checkoutUrl: "/mercurypayment/transaction/create",
-            statusUrl: "/mercurypayment/transaction/check",
+            staticUrl: merParam.url,
+            checkoutUrl: merParam.pathCreateTransaction,
+            statusUrl: merParam.pathCheckTransaction,
             checkStatusInterval: parseInt(merParam.time, 2),
             mount: "#mercury-cash",
             lang: "en",
@@ -23,7 +24,7 @@ jQuery("document").ready(function() {
 
         sdk.on("close", (obj) => {
             if (obj.status && (obj.status === "TRANSACTION_APROVED")) {
-
+                jQuery('#payment-buttons-container button').trigger('click');
             } else {
                 location.reload();
             }
